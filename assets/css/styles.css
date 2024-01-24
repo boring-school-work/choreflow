@@ -21,6 +21,7 @@ nav {
 
 .form {
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -36,18 +37,19 @@ nav {
   padding-top: 10px;
   padding-bottom: 10px;
   width: 20rem;
-  border: 0.8;
+  border: 0.5px solid #1e90ff;
   border-radius: 5px;
 }
 
 .form__button {
   padding-left: 55px;
   padding-right: 55px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  background-color: lightblue;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #1e90ff;
   border-radius: 10px;
-  border: 0;
-  margin-left: 5.5rem;
+  border: none;
+  color: white;
   font-weight: bold;
+  cursor: pointer;
 }
