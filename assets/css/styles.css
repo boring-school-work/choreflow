@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.login__title {
+  text-align: center;
+  margin-top: 9rem;
+  margin-bottom: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__info {
+  margin-top: 1rem;
+}
+
+.form__item {
+  margin-bottom: 1rem;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 20rem;
+  border: 0.8;
+  border-radius: 5px;
+}
+
+.form__button {
+  padding-left: 55px;
+  padding-right: 55px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: lightblue;
+  border-radius: 10px;
+  border: 0;
+  margin-left: 5.5rem;
+  font-weight: bold;
+}
