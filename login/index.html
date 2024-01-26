@@ -4,11 +4,16 @@
     <title>Chore Management System</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="./assets/css/styles.css" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+    <link href="./../assets/css/styles.css" rel="stylesheet" />
   </head>
   <body>
     <nav>
-      <h1 class="title">Chore Management System</h1>
+      <h1 class="nav__title"><a href="/">Chore Management System</a></h1>
+      <div>
+        <a class="nav__link" href="./../login/">Login</a>
+        <a class="nav__link" href="./../register/">Register</a>
+      </div>
     </nav>
     <div class="login">
       <h2 class="login__title">Login</h2>
@@ -40,7 +45,7 @@
           </div>
         </form>
         <div class="login__info">
-          New here? <a href="./register.html">Register</a> with us.
+          New here? <a href="./../register">Register</a> with us.
         </div>
       </div>
     </div>

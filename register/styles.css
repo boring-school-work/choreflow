@@ -1,0 +1,17 @@
+.register__title {
+  text-align: center;
+  margin-top: 9rem;
+  margin-bottom: 3rem;
+}
+
+.form {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register__info {
+  margin-top: 1rem;
+}
