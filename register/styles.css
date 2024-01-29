@@ -1,17 +1,21 @@
-.register__title {
-  text-align: center;
-  margin-top: 9rem;
-  margin-bottom: 3rem;
-}
-
-.form {
+.form__layout {
   display: flex;
-  text-align: center;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 
-.register__info {
-  margin-top: 1rem;
+.form__layout__item {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  margin-right: 25px;
+  text-align: left;
+}
+
+select {
+  width: 120px !important;
+}
+
+select option {
+  width: 120px !important;
 }

@@ -9,18 +9,61 @@
   </head>
   <body>
     <nav>
-      <h1 class="nav__title"><a href="/">Chore Management System</a></h1>
+      <h1>
+        <a class="nav__title" href="/">Chore Management System</a>
+      </h1>
       <div>
         <a class="nav__link" href="../login/">Login</a>
         <a class="nav__link" href="../register/">Register</a>
       </div>
     </nav>
     <div class="register">
-      <h2 class="register__title">Register your account</h2>
+      <h2 class="form__title">Register your account</h2>
       <div class="form">
-        <form action=""></form>
-        <div class="register__info">
-          Already have an account? <a href="./../register">Sign in</a>.
+        <form action="">
+          <div class="form__layout">
+            <div class="form__layout__item">
+              <label for="fname">First name</label
+              ><input
+                type="text"
+                name="fname"
+                class="input__text"
+                placeholder="Enter your first name"
+              />
+            </div>
+            <div class="form__layout__item">
+              <label for="lname">Last name</label
+              ><input
+                type="text"
+                name="lname"
+                class="input__text"
+                placeholder="Enter your last name"
+              />
+            </div>
+          </div>
+          <div class="form__layout">
+            <div class="form__layout__item">
+              <label for="gender">Gender</label>
+              <div>
+                <input type="radio" id="male" name="gender" value="male" />
+                <label for="male">male</label><br />
+                <input type="radio" id="female" name="gender" value="female" />
+                <label for="female">female</label><br />
+              </div>
+            </div>
+            <div>
+              <label for="role">Family Role</label>
+              <select name="family_role">
+                <option value="father">Father</option>
+                <option value="mother">Mother</option>
+                <option value="son">Son</option>
+                <option value="daughter">Daughter</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <div class="form__info">
+          Already have an account? <a href="./../login">Sign in</a>.
         </div>
       </div>
     </div>
