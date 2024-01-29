@@ -19,7 +19,7 @@
     </nav>
     <div class="register">
       <h2 class="form__title">Register your account</h2>
-      <div class="form">
+      <div class="container">
         <form action="">
           <div class="form__layout">
             <div class="form__layout__item">
@@ -27,7 +27,7 @@
               ><input
                 type="text"
                 name="fname"
-                class="input__text"
+                class="input__item"
                 placeholder="Enter your first name"
               />
             </div>
@@ -36,7 +36,7 @@
               ><input
                 type="text"
                 name="lname"
-                class="input__text"
+                class="input__item"
                 placeholder="Enter your last name"
               />
             </div>
@@ -60,6 +60,53 @@
                 <option value="daughter">Daughter</option>
               </select>
             </div>
+          </div>
+          <div class="form__layout">
+            <div class="form__layout__item">
+              <label for="dob">Date of Birth</label>
+              <input type="date" class="input__item" id="dob" name="dob" />
+            </div>
+            <div class="form__layout__item">
+              <label for="tel">Telephone</label>
+              <input type="tel" class="input__item" id="tel" name="tel" />
+            </div>
+          </div>
+          <div class="form__layout__plain">
+            <div>
+              <label for="email">Enter your email</label>
+              <input
+                class="input__item"
+                type="text"
+                name="email"
+                placeholder="Email"
+              />
+            </div>
+            <div>
+              <label for="pass1">Enter your password</label>
+              <input
+                class="input__item"
+                type="password"
+                name="pass1"
+                placeholder="Password"
+              />
+            </div>
+            <div>
+              <label for="pass2">Re-type your password</label>
+              <input
+                class="input__item"
+                type="password"
+                name="pass2"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+          <div>
+            <input
+              class="form__button"
+              type="submit"
+              name="submit"
+              value="Register"
+            />
           </div>
         </form>
         <div class="form__info">
