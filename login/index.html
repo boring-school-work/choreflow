@@ -19,13 +19,15 @@
     </nav>
     <h2 class="form__title">Login</h2>
     <div class="container">
-      <form action="">
+      <form action="" method="post" name="login" id="login">
         <div>
           <input
             class="input__item"
             type="text"
             name="email"
+            id="email"
             placeholder="Email"
+            required
           />
         </div>
         <div>
@@ -33,7 +35,9 @@
             class="input__item"
             type="password"
             name="password"
+            id="password"
             placeholder="Password"
+            required
           />
         </div>
         <div>
@@ -41,6 +45,7 @@
             class="form__button"
             type="submit"
             name="submit"
+            id="submit"
             value="Sign in"
           />
         </div>

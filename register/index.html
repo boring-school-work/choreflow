@@ -27,8 +27,10 @@
               ><input
                 type="text"
                 name="fname"
+                id="fname"
                 class="input__item"
                 placeholder="Enter your first name"
+                required
               />
             </div>
             <div class="form__layout__item">
@@ -36,8 +38,10 @@
               ><input
                 type="text"
                 name="lname"
+                id="lname"
                 class="input__item"
                 placeholder="Enter your last name"
+                required
               />
             </div>
           </div>
@@ -64,7 +68,13 @@
           <div class="form__layout">
             <div class="form__layout__item">
               <label for="dob">Date of Birth</label>
-              <input type="date" class="input__item" id="dob" name="dob" />
+              <input
+                type="date"
+                class="input__item"
+                id="dob"
+                name="dob"
+                required
+              />
             </div>
             <div class="form__layout__item">
               <label for="tel">Telephone</label>
@@ -87,7 +97,9 @@
                 class="input__item"
                 type="password"
                 name="pass1"
+                id="pass1"
                 placeholder="Password"
+                required
               />
             </div>
             <div>
@@ -96,7 +108,9 @@
                 class="input__item"
                 type="password"
                 name="pass2"
+                id="pass2"
                 placeholder="Password"
+                required
               />
             </div>
           </div>
@@ -105,6 +119,7 @@
               class="form__button"
               type="submit"
               name="submit"
+              id="submit"
               value="Register"
             />
           </div>
