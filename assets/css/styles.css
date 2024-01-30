@@ -1,80 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layout base {
+  font-family: 'Nunito', sans-serif;
+}
+
 * {
+  min-width: 0;
   margin: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-label {
-  font-size: 1.2rem;
-  margin-right: 10px;
-}
-
-nav {
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.form__title {
-  text-align: center;
-  margin-top: 9rem;
-  margin-bottom: 3rem;
-}
-
-.container {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.form__info {
-  margin-top: 1rem;
-}
-
-.nav__title {
-  font-size: 2rem !important;
-  color: black;
-}
-
-a {
-  text-decoration: none;
-}
-
-.nav__link {
-  margin-right: 10px;
-  background-color: rgb(55 65 81);
-  color: white;
-  padding-right: 13px;
-  padding-left: 13px;
-  font-weight: bold;
-  border-radius: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.input__item {
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 20rem;
-  margin-bottom: 1rem;
-  border: 0.5px solid #1e90ff;
-  border-radius: 5px;
-}
-
-.form__button {
-  padding-left: 55px;
-  padding-right: 55px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #1e90ff;
-  border-radius: 10px;
-  border: none;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
 }
