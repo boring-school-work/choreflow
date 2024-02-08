@@ -80,16 +80,7 @@
         </div>
     </div>
 
-    <!-- Handle form dialog -->
-    <script>
-    document.getElementById('openDialog').addEventListener('click', function() {
-        document.getElementById('dialog').showModal();
-    });
-
-    document.getElementById('closeDialog').addEventListener('click', function() {
-        document.getElementById('dialog').close();
-    });
-    </script>
+    <script src="../../../assets/js/main.js"></script>
 </body>
 
 </html>
