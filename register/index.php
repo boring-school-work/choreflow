@@ -19,10 +19,12 @@
     <form action="" method="post" name="register" id="register">
       <div class="flex flex-row place-content-center gap-x-3 mb-4">
         <div class="flex flex-col text-left mb-1 w-1/5">
-          <label for="fname">First name</label><input type="text" name="fname" id="fname" class="py-2 px-3 rounded-md" placeholder="Enter your first name" required />
+          <label for="fname">First name</label>
+          <input type="text" name="fname" id="fname" class="py-2 px-3 rounded-md" placeholder="Enter your first name" required />
         </div>
         <div class="flex flex-col text-left mb-1 w-1/5">
-          <label for="fname">Last name</label><input type="text" name="lname" id="lname" class="py-2 px-3 rounded-md" placeholder="Enter your last name" required />
+          <label for="lname">Last name</label>
+          <input type="text" name="lname" id="lname" class="py-2 px-3 rounded-md" placeholder="Enter your last name" required />
         </div>
       </div>
       <div class="flex flex-row place-content-center gap-x-3 mb-4">
@@ -30,11 +32,11 @@
           <p>Gender</p>
           <div>
             <div class="indent-5">
-              <input type="radio" id="male" name="gender" value="male" />
+              <input type="radio" id="male" name="gender" value=0 />
               <label for="male">male</label><br />
             </div>
             <div class="indent-5">
-              <input type="radio" id="female" name="gender" value="female" />
+              <input type="radio" id="female" name="gender" value=1 />
               <label for="female">female</label><br />
             </div>
           </div>
@@ -74,7 +76,7 @@
           <label for="pass1">Enter your password</label>
         </div>
         <div class="w-[40%]">
-          <input class="w-full py-2 px-3 rounded-md" type="password" name="pass1" id="pass1" placeholder="Password" required />
+          <input class="w-full py-2 px-3 rounded-md" type="password" name="passwd0" id="passwd0" placeholder="Password" required />
         </div>
       </div>
       <div class="grid grid-cols-2 place-content-center gap-x-3 mb-4">
@@ -82,7 +84,7 @@
           <label for="pass2">Re-type your password</label>
         </div>
         <div class="w-[40%]">
-          <input class="w-full py-2 px-3 rounded-md" type="password" name="pass2" id="pass2" placeholder="Re-type password" required />
+          <input class="w-full py-2 px-3 rounded-md" type="password" name="passwd" id="passwd" placeholder="Re-type password" required />
         </div>
       </div>
       <div class="my-3">
