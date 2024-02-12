@@ -14,5 +14,5 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-echo $conn->host_info . "<br>";
-echo "Database connected successfully <br>";
+/* echo $conn->host_info . "<br>"; */
+/* echo "Database connected successfully <br>"; */
