@@ -16,12 +16,12 @@
   </div>
   <div class="bg-gray-100 h-screen text-center flex flex-col pt-60">
     <h2 class="font-semibold text-3xl mb-5">Login</h2>
-    <form action="" method="post" name="login" id="login">
+    <form action="../action/login_user.php" method="post" name="login" id="login">
       <div class="mb-4">
-        <input type="text" name="email" id="email" placeholder="Email" required class="py-2 px-3 w-1/5 rounded-md" />
+        <input type="text" name="email" id="email" pattern="^[a-z._\-0-9]*[@][a-z]*.(?:...com)$" placeholder="Email" required class="py-2 px-3 w-1/5 rounded-md" />
       </div>
       <div>
-        <input type="password" name="passwd" id="passwd" placeholder="Password" class="py-2 px-3 w-1/5 rounded-md" required />
+        <input type="password" name="passwd" id="passwd" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="py-2 px-3 w-1/5 rounded-md" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
       </div>
       <div class="my-3">
         <input type="submit" name="submit" id="submit" class="py-2 bg-blue-400 px-7 rounded-md" value="Sign in" />
