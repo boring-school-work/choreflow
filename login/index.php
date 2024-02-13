@@ -16,7 +16,7 @@
   </div>
   <div class="bg-gray-100 h-screen text-center flex flex-col pt-60">
     <h2 class="font-semibold text-3xl mb-5">Login</h2>
-    <form action="" method="post" name="login" id="login">
+    <form action="../action/login_user.php" method="post" name="login" id="login">
       <div class="mb-4">
         <input type="text" name="email" id="email" pattern="^[a-z._\-0-9]*[@][a-z]*.(?:...com)$" placeholder="Email" required class="py-2 px-3 w-1/5 rounded-md" />
       </div>
