@@ -50,9 +50,10 @@ try {
   mysqli_commit($conn);
 } catch (mysqli_sql_exception $e) {
   mysqli_rollback($conn);
+  die();
 }
 
 // redirect to login page after registration
 echo "Registration successful!" . "<br>";
-echo "Redirecting to login page in 5 seconds...";
-header("refresh:5; url=../login/");
+echo "Redirecting to login page in 3 seconds...";
+header("refresh:3; url=../login/");
