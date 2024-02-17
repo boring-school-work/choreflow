@@ -16,6 +16,9 @@
   </div>
   <div class="bg-gray-100 h-screen text-center flex flex-col pt-20">
     <h2 class="font-semibold text-3xl mb-5">Register your account</h2>
+    <?php
+    echo "<p class='font-semibold text-red-600 pb-3'>" . $_GET['error'] . "</p>";
+    ?>
     <form action="../action/register_user.php" method="post" name="register" id="register" onsubmit="return check();">
       <div class="flex flex-row place-content-center gap-x-3 mb-4">
         <div class="flex flex-col text-left mb-1 w-1/5">
@@ -99,7 +102,7 @@
         </div>
       </div>
       <div class="my-3">
-        <input class="py-2 bg-blue-400 px-7 rounded-md" type="submit" name="submit" id="submit" value="Register" />
+        <input class="py-2 bg-blue-400 px-7 rounded-md cursor-pointer" type="submit" name="submit" id="submit" value="Register" />
       </div>
     </form>
     <div>

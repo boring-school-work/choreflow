@@ -2,13 +2,24 @@
 include '../settings/core.php';
 include '../settings/connection.php';
 
-// sanitize the input
+// sanitize email
+$email = $conn->real_escape_string($_POST['email']);
+
+// check if email exists in database
+$query = "SELECT count(email) as value FROM People WHERE email = '$email'";
+$result = $conn->query($query)->fetch_assoc();
+
+if ($result['value'] == 1) {
+  header("Location: ./../register?error=Email%20already%20exists, try again!");
+  exit();
+}
+
+// sanitize the rest of the inputs
 $fname = $conn->real_escape_string($_POST['fname']);
 $lname = $conn->real_escape_string($_POST['lname']);
 $gender = $conn->real_escape_string($_POST['gender']);
 $dob = $conn->real_escape_string($_POST['dob']);
 $tel = $conn->real_escape_string($_POST['tel']);
-$email = $conn->real_escape_string($_POST['email']);
 $fid = $conn->real_escape_string($_POST['family_role']);
 $rid = 0;
 
@@ -50,7 +61,7 @@ try {
   mysqli_commit($conn);
 } catch (mysqli_sql_exception $e) {
   mysqli_rollback($conn);
-  die();
+  exit();
 }
 
 // redirect to login page after registration
