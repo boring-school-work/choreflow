@@ -6,6 +6,10 @@ if (!isset($_SESSION['user_id'])) {
   exit();
 }
 
+if ($_SESSION['role_id'] < 3) {
+  header("Location: ../../dashboard");
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
