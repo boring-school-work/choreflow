@@ -20,6 +20,7 @@ if (isset($_POST['submit'])) {
   // create sessions
   $_SESSION['role_id'] = $result['rid'];
   $_SESSION['user_id'] = $result['pid'];
+  $_SESSION['username'] = $result['fname'] . " " . $result['lname'];
 
   // route to dashboard
   header("Location: ./../view/dashboard/");

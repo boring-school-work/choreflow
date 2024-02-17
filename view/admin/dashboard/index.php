@@ -40,9 +40,14 @@ if ($_SESSION['role_id'] == 3) {
 
     <!-- Dashboard -->
     <div class="grow">
-      <div class="py-6 px-6 border-b-4 border-l-4 border-blue-500 rounded">
-        <h1 class="font-semibold text-4xl text-left">Dashboard</h1>
-        <p class="font-semibold text-red-700">Admin</p>
+      <div class="flex py-6 px-6 border-b-4 border-l-4 border-blue-500 rounded items-center justify-between">
+        <div>
+          <h1 class="font-semibold text-4xl text-left">Dashboard</h1>
+          <p class="font-semibold text-red-700">Admin</p>
+        </div>
+        <?php
+        echo "<p>" . $_SESSION['username'] . "</p>";
+        ?>
       </div>
       <main class="bg-gray-100 h-[89vh] px-8">
         <h2 class="py-10 font-semibold text-gray-900 text-3xl">Tasks</h2>
