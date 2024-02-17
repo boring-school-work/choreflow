@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
   // check if there is a record matching the email or password is valid
   if ($result == null || !password_verify($passwd, $result['passwd'])) {
     header("Location: ./../login?status=fail");
-    die();
+    exit();
   }
 
   // create sessions
