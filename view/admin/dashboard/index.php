@@ -34,10 +34,7 @@ if ($_SESSION['role_id'] == 3) {
           <a href="../add-chore/" class="py-2 bg-gray-50 mb-2 rounded">Add Chore</a>
           <a href="../assign-chore/" class="py-2 bg-gray-50 mb-2 rounded">Assign Chore</a>
         </div>
-        <div class="flex gap-x-2 justify-around">
-          <a class="bg-blue-200 px-5 py-1 rounded-md" href="../../../register">Register</a>
-          <a class="bg-blue-200 px-5 py-1 rounded-md" href="../../../login">Login</a>
-        </div>
+        <a class="bg-blue-200 px-5 py-1 rounded-md" href="../../../logout">Logout</a>
       </div>
     </div>
 
