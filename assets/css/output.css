@@ -683,10 +683,6 @@ video {
   width: 100%;
 }
 
-.w-3\/4 {
-  width: 75%;
-}
-
 .grow {
   flex-grow: 1;
 }
@@ -725,11 +721,6 @@ video {
 
 .justify-around {
   justify-content: space-around;
-}
-
-.gap-x-2 {
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
 }
 
 .gap-x-3 {
