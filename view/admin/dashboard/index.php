@@ -1,4 +1,17 @@
-<?php session_start() ?>
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+  header('Location: ../../../login');
+  exit();
+}
+
+if ($_SESSION['role_id'] == 3) {
+  header("Location: ../../dashboard");
+  exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,18 +34,20 @@
           <a href="../add-chore/" class="py-2 bg-gray-50 mb-2 rounded">Add Chore</a>
           <a href="../assign-chore/" class="py-2 bg-gray-50 mb-2 rounded">Assign Chore</a>
         </div>
-        <div class="flex gap-x-2 justify-around">
-          <a class="bg-blue-200 px-5 py-1 rounded-md" href="../../../register">Register</a>
-          <a class="bg-blue-200 px-5 py-1 rounded-md" href="../../../login">Login</a>
-        </div>
+        <a class="bg-blue-200 px-5 py-1 rounded-md" href="../../../logout">Logout</a>
       </div>
     </div>
 
     <!-- Dashboard -->
     <div class="grow">
-      <div class="py-6 px-6 border-b-4 border-l-4 border-blue-500 rounded">
-        <h1 class="font-semibold text-4xl text-left">Dashboard</h1>
-        <p class="font-semibold text-red-700">Admin</p>
+      <div class="flex py-6 px-6 border-b-4 border-l-4 border-blue-500 rounded items-center justify-between">
+        <div>
+          <h1 class="font-semibold text-4xl text-left">Dashboard</h1>
+          <p class="font-semibold text-red-700">Admin</p>
+        </div>
+        <?php
+        echo "<p>" . $_SESSION['username'] . "</p>";
+        ?>
       </div>
       <main class="bg-gray-100 h-[89vh] px-8">
         <h2 class="py-10 font-semibold text-gray-900 text-3xl">Tasks</h2>
