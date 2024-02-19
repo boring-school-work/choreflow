@@ -1,5 +1,4 @@
 <?php
-include '../settings/core.php';
 include '../settings/connection.php';
 
 // sanitize email
