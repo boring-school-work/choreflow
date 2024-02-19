@@ -1,11 +1,11 @@
 <?php
-session_start();
 
 function check_session()
 {
-  // check if the user is logged in
-  if (!isset($_SESSION['id'])) {
-    header('Location: ../login/');
-    die("You need to sign in first!");
+  session_start();
+
+  if (!isset($_SESSION['user_id'])) {
+    header('Location: ../../../login');
+    exit();
   }
 }
