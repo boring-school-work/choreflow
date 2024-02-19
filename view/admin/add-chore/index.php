@@ -61,7 +61,7 @@ if ($_SESSION['role_id'] == 3) {
               x
             </div>
             <h3 class="text-2xl font-semibold text-center mb-5">Add a Chore</h3>
-            <form action="" method="post" name="addChore" id="addChore" class="flex flex-col items-center text-center justify-center">
+            <form action="./../../../action/add_chore.php" method="get" name="addChore" id="addChore" class="flex flex-col items-center text-center justify-center">
               <input type="text" placeholder="Enter chore" id="chorename" name="chorename" class="w-1/2 mb-4 border py-3 px-2 rounded-md border-blue-300 accent-blue-300" required />
               <button type="submit" name="submitChore" id="submitChore" class="bg-blue-300 px-3 py-2 rounded-md">Submit</button>
             </form>
