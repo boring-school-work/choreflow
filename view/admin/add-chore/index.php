@@ -1,10 +1,8 @@
 <?php
-session_start();
 
-if (!isset($_SESSION['user_id'])) {
-  header('Location: ../../../login');
-  exit();
-}
+include "../../../settings/core.php";
+
+check_session();
 
 if ($_SESSION['role_id'] == 3) {
   header("Location: ../../dashboard");
