@@ -89,6 +89,14 @@ if ($_SESSION['role_id'] == 3) {
               <div class='table-cell border py-2 pl-3'>$cid</div>
               <div class='table-cell border py-2 pl-3'>$chorename</div>
               <div class='table-cell border py-2 pl-3'>Do something</div>
+              <div class='table-cell border py-2 pl-3'>
+                  <div class='flex'>
+                    <form action='../../../action/delete_chore.php' method='get' name='delete_chore'>
+                      <input type='text' class='hidden' name='cid' value='$cid' />
+                      <input class='bg-red-300 px-2 py-0.5 rounded-lg cursor-pointer' value='delete' type='submit' />
+                    </form>
+                  </div>
+              </div>
             </div>
           </div>";
           }
