@@ -56,29 +56,64 @@ if ($_SESSION['role_id'] == 3) {
               All Chores
             </div>
 
-            <div class="font-bold text-2xl">12</div>
+            <div class="font-bold text-2xl">
+              <?php
+              include './../../../settings/connection.php';
+
+              $sql = "SELECT count(*) as value FROM Chores";
+              $result = $conn->query($sql)->fetch_assoc();
+
+              echo $result['value'];
+              ?>
+            </div>
           </a>
           <a href="../add-chore/" class="px-5 gap-y-8 pt-5 pb-3 rounded-lg drop-shadow-md bg-white w-1/5 flex flex-col justify-between">
             <div class="flex items-center">
               <div class="w-[12px] h-[12px] rounded-xl bg-yellow-400 mr-3"></div>
               In Progress
             </div>
+            <div class="font-bold text-2xl">
+              <?php
+              include './../../../settings/connection.php';
 
-            <div class="font-bold text-2xl">12</div>
+              $sql = "SELECT count(*) as value FROM Assignment WHERE sid=2";
+              $result = $conn->query($sql)->fetch_assoc();
+
+              echo $result['value'];
+              ?>
+            </div>
           </a>
           <a href="../add-chore/" class="px-5 gap-y-8 pt-5 pb-3 rounded-lg drop-shadow-md bg-white w-1/5 flex flex-col justify-between">
             <div class="flex items-center">
               <div class="w-[12px] h-[12px] rounded-xl bg-red-600 mr-3"></div>
               Incomplete
             </div>
-            <div class="font-bold text-2xl">12</div>
+            <div class="font-bold text-2xl">
+              <?php
+              include './../../../settings/connection.php';
+
+              $sql = "SELECT count(*) as value FROM Assignment WHERE sid=4";
+              $result = $conn->query($sql)->fetch_assoc();
+
+              echo $result['value'];
+              ?>
+            </div>
           </a>
           <a href="../add-chore/" class="px-5 gap-y-8 pt-5 pb-3 rounded-lg drop-shadow-md bg-white w-1/5 flex flex-col justify-between">
             <div class="flex items-center">
               <div class="w-[12px] h-[12px] rounded-xl bg-green-600 mr-3"></div>
               Completed
             </div>
-            <div class="font-bold text-2xl">12</div>
+            <div class="font-bold text-2xl">
+              <?php
+              include './../../../settings/connection.php';
+
+              $sql = "SELECT count(*) as value FROM Assignment WHERE sid=3";
+              $result = $conn->query($sql)->fetch_assoc();
+
+              echo $result['value'];
+              ?>
+            </div>
           </a>
         </div>
 
@@ -86,38 +121,41 @@ if ($_SESSION['role_id'] == 3) {
         <h2 class="py-10 font-semibold text-gray-900 text-3xl">
           Completed Chores
         </h2>
-        <div class="flex flex-col gap-y-3">
-          <div class="flex justify-between mx-16 px-5 border-2 items-center rounded-md">
-            <div>
-              <h3>Laundry</h3>
-              <p>father</p>
+
+        <div class=" table w-full">
+          <div class="table-header-group">
+            <div class="table-row">
+              <div class="table-cell bg-gray-300 py-2 pl-3">Chore name</div>
+              <div class="table-cell bg-gray-300 py-2 pl-3">Assigned by</div>
+              <div class="table-cell bg-gray-300 py-2 pl-3">Date Assigned</div>
+              <div class="table-cell bg-gray-300 py-2 pl-3">Date Completed</div>
+              <div class="table-cell bg-gray-300 py-2 pl-3">Details</div>
             </div>
-            <div>Date assigned</div>
-            <div>Date completed</div>
-            <div>Check details</div>
           </div>
-          <div class="flex justify-between mx-16 px-5 border-2 items-center rounded-md">
-            <div>
-              <h3>Laundry</h3>
-              <p>father</p>
+          <?php
+          include "../../../settings/connection.php";
+          $sql = "SELECT chorename, who_assigned, date_assign, date_completed FROM Assignment INNER JOIN Chores where Chores.cid = Assignment.cid";
+          $result = $conn->query($sql);
+
+          foreach ($result as $row) {
+            $chorename = $row['chorename'];
+            $who_assigned = $row['who_assigned'];
+            $date_assign = $row['date_assign'];
+            $date_completed = $row['date_completed'];
+            echo "<div class='table-row-group'>
+            <div class='table-row'>
+              <div class='table-cell border py-2 pl-3'>$chorename</div>
+              <div class='table-cell border py-2 pl-3'>$who_assigned</div>
+              <div class='table-cell border py-2 pl-3'>$date_assign</div>
+              <div class='table-cell border py-2 pl-3'>$date_completed</div>
+              <div class='table-cell border py-2 pl-3'>Do something</div>
             </div>
-            <div>Date assigned</div>
-            <div>Date completed</div>
-            <div>Check details</div>
-          </div>
-          <div class="flex justify-between mx-16 px-5 border-2 items-center rounded-md">
-            <div>
-              <h3>Laundry</h3>
-              <p>father</p>
-            </div>
-            <div>Date assigned</div>
-            <div>Date completed</div>
-            <div>Check details</div>
-          </div>
+          </div>";
+          }
+          ?>
         </div>
+      </main>
     </div>
-    </main>
-  </div>
   </div>
 </body>
 
