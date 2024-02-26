@@ -61,35 +61,33 @@ if ($_SESSION['role_id'] == 3) {
               x
             </div>
             <h3 class="text-2xl font-semibold text-center mb-5">Assign a Chore</h3>
-            <form action="" method="post" name="assignChore" id="assignChore" class="flex flex-col items-center text-center justify-center gap-y-3">
+            <form action="../../../action/assign_chore.php" method="get" name="assignChore" id="assignChore" class="flex flex-col items-center text-center justify-center gap-y-3">
               <div class="flex justify-center items-center text-left">
                 <p class="mr-2">Pick an assignee: </p>
-                <select name="assignees" id="assignees" class="w-64 py-2 px-2 rounded-md" required>
+                <select name="assignee" id="assignee" class="w-64 py-2 px-2 rounded-md" required>
                   <?php
                   include "../../../functions/select_assignee.php";
                   include "../../../settings/connection.php";
-                  $result = get_assignees($conn);
-
-                  foreach ($result as $row) {
-                    echo "<option value='" . $row['pid'] . "'>" . $row['fname'] . " " . $row['lname'] . "</option>";
-                  }
+                  get_assignees($conn);
                   ?>
                 </select>
               </div>
               <br>
               <div class="flex justify-center items-center text-left">
                 <p class="mr-2">Pick a chore: </p>
-                <select name="chores" id="chores" class="w-64 py-2 px-1 rounded-md" required>
-                  <option value=""></option>
-                  <option value="chore-id-1">Do a dish</option>
-                  <option value="chore-id-2">Eat some food</option>
-                  <option value="chore-id-3">Wash the car</option>
+                <select name="chore" id="chore" class="w-64 py-2 px-2 rounded-md" required>
+                  <?php
+                  include "../../../functions/select_chore.php";
+                  include "../../../settings/connection.php";
+                  get_chore($conn);
+                  ?>
                 </select>
               </div>
               <br>
               <div class="flex justify-center items-center text-left">
                 <label for="due-date" class="mr-2">Due date: </label>
-                <input type="date" name="due-date" id="due-date" class="bg-gray-200 py-2 px-3 rounded-md" required />
+                <input type="date" name="due_date" id="due_date" min="<?php $current = new DateTime();
+                                                                      echo $current->format("Y-m-d"); ?>" class="bg-gray-200 py-2 px-3 rounded-md" required />
               </div>
               <br>
               <button type="submit" name="submitAssignment" id="submitAssignment" class="bg-blue-300 px-3 py-2 rounded-md">Assign</button>
