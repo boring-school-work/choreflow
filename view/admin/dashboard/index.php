@@ -59,11 +59,8 @@ if ($_SESSION['role_id'] == 3) {
             <div class="font-bold text-2xl">
               <?php
               include './../../../settings/connection.php';
-
-              $sql = "SELECT count(*) as value FROM Chores";
-              $result = $conn->query($sql)->fetch_assoc();
-
-              echo $result['value'];
+              include './../../../functions/get_all_chores_count.php';
+              get_all_chores_count($conn);
               ?>
             </div>
           </a>
@@ -75,11 +72,8 @@ if ($_SESSION['role_id'] == 3) {
             <div class="font-bold text-2xl">
               <?php
               include './../../../settings/connection.php';
-
-              $sql = "SELECT count(*) as value FROM Assignment WHERE sid=2";
-              $result = $conn->query($sql)->fetch_assoc();
-
-              echo $result['value'];
+              include './../../../functions/get_in_prog_chores_count.php';
+              get_all_in_prog_chores_count($conn);
               ?>
             </div>
           </a>
@@ -91,11 +85,8 @@ if ($_SESSION['role_id'] == 3) {
             <div class="font-bold text-2xl">
               <?php
               include './../../../settings/connection.php';
-
-              $sql = "SELECT count(*) as value FROM Assignment WHERE sid=4";
-              $result = $conn->query($sql)->fetch_assoc();
-
-              echo $result['value'];
+              include './../../../functions/get_incomplete_chores_count.php';
+              get_incomplete_chores_count($conn);
               ?>
             </div>
           </a>
@@ -107,11 +98,8 @@ if ($_SESSION['role_id'] == 3) {
             <div class="font-bold text-2xl">
               <?php
               include './../../../settings/connection.php';
-
-              $sql = "SELECT count(*) as value FROM Assignment WHERE sid=3";
-              $result = $conn->query($sql)->fetch_assoc();
-
-              echo $result['value'];
+              include './../../../functions/get_completed_chores_count.php';
+              get_completed_chores_count($conn);
               ?>
             </div>
           </a>
@@ -134,24 +122,8 @@ if ($_SESSION['role_id'] == 3) {
           </div>
           <?php
           include "../../../settings/connection.php";
-          $sql = "SELECT chorename, who_assigned, date_assign, date_completed FROM Assignment INNER JOIN Chores where Chores.cid = Assignment.cid";
-          $result = $conn->query($sql);
-
-          foreach ($result as $row) {
-            $chorename = $row['chorename'];
-            $who_assigned = $row['who_assigned'];
-            $date_assign = $row['date_assign'];
-            $date_completed = $row['date_completed'];
-            echo "<div class='table-row-group'>
-            <div class='table-row'>
-              <div class='table-cell border py-2 pl-3'>$chorename</div>
-              <div class='table-cell border py-2 pl-3'>$who_assigned</div>
-              <div class='table-cell border py-2 pl-3'>$date_assign</div>
-              <div class='table-cell border py-2 pl-3'>$date_completed</div>
-              <div class='table-cell border py-2 pl-3'>Do something</div>
-            </div>
-          </div>";
-          }
+          include "../../../functions/get_completed_chores_list.php";
+          get_completed_chores($conn);
           ?>
         </div>
       </main>
