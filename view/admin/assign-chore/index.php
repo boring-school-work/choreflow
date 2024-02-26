@@ -64,12 +64,16 @@ if ($_SESSION['role_id'] == 3) {
             <form action="" method="post" name="assignChore" id="assignChore" class="flex flex-col items-center text-center justify-center gap-y-3">
               <div class="flex justify-center items-center text-left">
                 <p class="mr-2">Pick an assignee: </p>
-                <select name="assignees" id="assignees" class="w-64 py-2 px-1 rounded-md" required>
-                  <option value=""></option>
-                  <option value="id-1">John Doe</option>
-                  <option value="id-2">Mary Doe</option>
-                  <option value="id-3">Faith Doe</option>
-                  <option value="id-4">Another Doe</option>
+                <select name="assignees" id="assignees" class="w-64 py-2 px-2 rounded-md" required>
+                  <?php
+                  include "../../../functions/select_assignee.php";
+                  include "../../../settings/connection.php";
+                  $result = get_assignees($conn);
+
+                  foreach ($result as $row) {
+                    echo "<option value='" . $row['pid'] . "'>" . $row['fname'] . " " . $row['lname'] . "</option>";
+                  }
+                  ?>
                 </select>
               </div>
               <br>
