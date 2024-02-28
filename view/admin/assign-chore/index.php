@@ -102,7 +102,7 @@ if ($_SESSION['role_id'] == 3) {
               <div class="table-cell bg-gray-300 py-2 pl-3">Chore name</div>
               <div class="table-cell bg-gray-300 py-2 pl-3">Due date</div>
               <div class="table-cell bg-gray-300 py-2 pl-3">Status</div>
-              <div class="table-cell bg-gray-300 py-2 pr-3">Actions</div>
+              <div class="table-cell bg-gray-300 py-2 pl-3">Actions</div>
             </div>
           </div>
           <?php
