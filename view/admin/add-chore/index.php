@@ -80,6 +80,7 @@ if ($_SESSION['role_id'] == 3) {
           include "../../../settings/connection.php";
           include "../../../functions/get_chores_list.php";
           get_chores_list($conn);
+          $conn->close();
           ?>
         </div>
       </main>

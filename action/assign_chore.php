@@ -46,5 +46,6 @@ if (!mysqli_stmt_execute($query)) {
   die("Internal Server Error: Could not insert into database.");
 }
 
+$conn->close();
 header("Location: ./../view/admin/assign-chore/");
 exit();

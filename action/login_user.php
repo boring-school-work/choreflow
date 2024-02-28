@@ -22,6 +22,7 @@ if (isset($_POST['submit'])) {
   $_SESSION['user_id'] = $result['pid'];
   $_SESSION['username'] = $result['fname'] . " " . $result['lname'];
 
+  $conn->close();
   // route to dashboard
   header("Location: ./../view/dashboard/");
 }

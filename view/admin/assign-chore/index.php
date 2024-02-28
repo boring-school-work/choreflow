@@ -69,6 +69,7 @@ if ($_SESSION['role_id'] == 3) {
                   include "../../../functions/select_assignee.php";
                   include "../../../settings/connection.php";
                   get_assignees($conn);
+                  $conn->close();
                   ?>
                 </select>
               </div>
@@ -80,6 +81,7 @@ if ($_SESSION['role_id'] == 3) {
                   include "../../../functions/select_chore.php";
                   include "../../../settings/connection.php";
                   get_chore($conn);
+                  $conn->close();
                   ?>
                 </select>
               </div>
@@ -109,6 +111,7 @@ if ($_SESSION['role_id'] == 3) {
           include "../../../settings/connection.php";
           include "../../../functions/get_all_assignments.php";
           get_all_assignments($conn);
+          $conn->close();
           ?>
         </div>
       </main>

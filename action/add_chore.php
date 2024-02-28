@@ -29,4 +29,5 @@ try {
   exit();
 }
 
+$conn->close();
 header("Location: ./../view/admin/add-chore/");
