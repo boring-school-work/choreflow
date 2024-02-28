@@ -12,29 +12,38 @@ $date_assign = new DateTime();
 $date_assign = $conn->real_escape_string($date_assign->format("Y-m-d"));
 $sid = $conn->real_escape_string(4);
 
-// insert chore into database
-// start transaction
-mysqli_begin_transaction($conn);
+/* insert values into Assignment table */
+// prepare the query
+$query = mysqli_prepare(
+  $conn,
+  "INSERT INTO Assignment(cid, sid, date_assign, date_due, who_assigned) VALUES(?,?,?,?,?)"
+);
 
-// insert values into People table
-try {
-  // prepare the query
-  $query = mysqli_prepare(
-    $conn,
-    "INSERT INTO Assignment(cid, sid, date_assign, date_due, who_assigned) VALUES(?,?,?,?,?)"
-  );
+// bind the parameters
+mysqli_stmt_bind_param($query, "sssss", $cid, $sid, $date_assign, $date_due, $who_assigned);
 
-  // bind the parameters
-  mysqli_stmt_bind_param($query, "sssss", $cid, $sid, $date_assign, $date_due, $who_assigned);
+// execute the query
+if (!mysqli_stmt_execute($query)) {
+  die("Internal Server Error: Could not insert into database.");
+}
 
-  // execute the query
-  mysqli_stmt_execute($query);
+/* get pid & assignment id */
+$pid = $conn->real_escape_string($_GET['assignee']);
+$assignmentid =  $conn->insert_id;
 
-  // commit the transaction
-  mysqli_commit($conn);
-} catch (mysqli_sql_exception $e) {
-  mysqli_rollback($conn);
-  exit();
+/* insert into Assigned_people table */
+// prepare the query
+$query = mysqli_prepare(
+  $conn,
+  "INSERT INTO Assigned_people(pid, assignmentid) VALUES(?,?)"
+);
+
+// bind the parameters
+mysqli_stmt_bind_param($query, "ss", $pid, $assignmentid);
+
+// execute the query
+if (!mysqli_stmt_execute($query)) {
+  die("Internal Server Error: Could not insert into database.");
 }
 
 header("Location: ./../view/admin/assign-chore/");
