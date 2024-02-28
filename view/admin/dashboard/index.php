@@ -61,6 +61,7 @@ if ($_SESSION['role_id'] == 3) {
               include './../../../settings/connection.php';
               include './../../../functions/get_all_chores_count.php';
               get_all_chores_count($conn);
+              $conn->close();
               ?>
             </div>
           </a>
@@ -74,6 +75,7 @@ if ($_SESSION['role_id'] == 3) {
               include './../../../settings/connection.php';
               include './../../../functions/get_in_prog_chores_count.php';
               get_all_in_prog_chores_count($conn);
+              $conn->close();
               ?>
             </div>
           </a>
@@ -87,6 +89,7 @@ if ($_SESSION['role_id'] == 3) {
               include './../../../settings/connection.php';
               include './../../../functions/get_incomplete_chores_count.php';
               get_incomplete_chores_count($conn);
+              $conn->close();
               ?>
             </div>
           </a>
@@ -100,6 +103,7 @@ if ($_SESSION['role_id'] == 3) {
               include './../../../settings/connection.php';
               include './../../../functions/get_completed_chores_count.php';
               get_completed_chores_count($conn);
+              $conn->close();
               ?>
             </div>
           </a>
@@ -124,6 +128,7 @@ if ($_SESSION['role_id'] == 3) {
           include "../../../settings/connection.php";
           include "../../../functions/get_completed_chores_list.php";
           get_completed_chores($conn);
+          $conn->close();
           ?>
         </div>
       </main>

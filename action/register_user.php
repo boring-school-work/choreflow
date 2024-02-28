@@ -63,6 +63,7 @@ try {
   exit();
 }
 
+$conn->close();
 // redirect to login page after registration
 echo "Registration successful!" . "<br>";
 echo "Redirecting to login page in 3 seconds...";
