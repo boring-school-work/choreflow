@@ -22,6 +22,11 @@ function get_all_assignments($conn)
               <div class='table-cell border py-2 pl-3'>$sname</div>
               <div class='table-cell border py-2 pl-3'>
                 <div class='flex gap-x-2'>
+                  <form action='../../../functions/mark_incomplete.php' method='get' name='incomplete'>
+                    <input type='text' class='hidden' name='assignmentid' value='$assignmentid' />
+                    <input type='text' class='hidden' name='sid' value='$sid' />
+                    <input class='bg-red-300 px-2 py-0.5 rounded-lg cursor-pointer' value='mark incomplete' type='submit' />
+                  </form>
                   <form action='../../../functions/mark_complete.php' method='get' name='complete'>
                     <input type='text' class='hidden' name='assignmentid' value='$assignmentid' />
                     <input type='text' class='hidden' name='sid' value='$sid' />
