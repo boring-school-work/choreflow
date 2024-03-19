@@ -65,7 +65,7 @@ if ($_SESSION['role_id'] == 3) {
               ?>
             </div>
           </a>
-          <a href="../add-chore/" class="px-5 gap-y-8 pt-5 pb-3 rounded-lg drop-shadow-md bg-white w-1/5 flex flex-col justify-between">
+          <a href="./?status=inprogress" class="px-5 gap-y-8 pt-5 pb-3 rounded-lg drop-shadow-md bg-white w-1/5 flex flex-col justify-between">
             <div class="flex items-center">
               <div class="w-[12px] h-[12px] rounded-xl bg-yellow-400 mr-3"></div>
               In Progress
@@ -79,7 +79,7 @@ if ($_SESSION['role_id'] == 3) {
               ?>
             </div>
           </a>
-          <a href="../add-chore/" class="px-5 gap-y-8 pt-5 pb-3 rounded-lg drop-shadow-md bg-white w-1/5 flex flex-col justify-between">
+          <a href="./?status=incomplete" class="px-5 gap-y-8 pt-5 pb-3 rounded-lg drop-shadow-md bg-white w-1/5 flex flex-col justify-between">
             <div class="flex items-center">
               <div class="w-[12px] h-[12px] rounded-xl bg-red-600 mr-3"></div>
               Incomplete
@@ -93,7 +93,7 @@ if ($_SESSION['role_id'] == 3) {
               ?>
             </div>
           </a>
-          <a href="../add-chore/" class="px-5 gap-y-8 pt-5 pb-3 rounded-lg drop-shadow-md bg-white w-1/5 flex flex-col justify-between">
+          <a href="./?status=completed" class="px-5 gap-y-8 pt-5 pb-3 rounded-lg drop-shadow-md bg-white w-1/5 flex flex-col justify-between">
             <div class="flex items-center">
               <div class="w-[12px] h-[12px] rounded-xl bg-green-600 mr-3"></div>
               Completed
@@ -111,23 +111,52 @@ if ($_SESSION['role_id'] == 3) {
 
         <!-- Assigned Tasks -->
         <h2 class="py-10 font-semibold text-gray-900 text-3xl">
-          Completed Chores
+          <?php
+          if (isset($_GET['status'])) {
+            switch ($_GET['status']) {
+              case "inprogress":
+                echo "In Progress Chores List";
+                break;
+              case "completed":
+                echo "Completed Chores List";
+                break;
+              case "incomplete":
+                echo "Incomplete Chores List";
+                break;
+              default:
+                echo "Completed Chores";
+            }
+          } else {
+            echo "Completed Chores";
+          }
+          ?>
         </h2>
 
         <div class=" table w-full">
-          <div class="table-header-group">
-            <div class="table-row">
-              <div class="table-cell bg-gray-300 py-2 pl-3">Chore name</div>
-              <div class="table-cell bg-gray-300 py-2 pl-3">Assigned by</div>
-              <div class="table-cell bg-gray-300 py-2 pl-3">Date Assigned</div>
-              <div class="table-cell bg-gray-300 py-2 pl-3">Date Completed</div>
-              <div class="table-cell bg-gray-300 py-2 pl-3">Assignee</div>
-            </div>
-          </div>
           <?php
           include "../../../settings/connection.php";
           include "../../../functions/get_completed_chores_list.php";
-          get_completed_chores($conn);
+          include "../../../functions/get_inprogress_chores_list.php";
+          include "../../../functions/get_incomplete_chores_list.php";
+
+          if (isset($_GET['status'])) {
+            switch ($_GET['status']) {
+              case "inprogress":
+                get_inprogress_chores($conn);
+                break;
+              case "completed":
+                get_completed_chores($conn);
+                break;
+              case "incomplete":
+                get_incomplete_chores($conn);
+                break;
+              default:
+                get_completed_chores($conn);
+            }
+          } else {
+            get_completed_chores($conn);
+          }
+
           $conn->close();
           ?>
         </div>
