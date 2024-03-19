@@ -71,7 +71,6 @@ if ($_SESSION['role_id'] == 3) {
         <div class=" table w-full">
           <div class="table-header-group">
             <div class="table-row">
-              <div class="table-cell bg-gray-300 py-2 pl-3">Chore ID</div>
               <div class="table-cell bg-gray-300 py-1 pl-3">Chore name</div>
               <div class="table-cell bg-gray-300 py-2 pl-3">Actions</div>
             </div>

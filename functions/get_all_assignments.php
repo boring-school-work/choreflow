@@ -5,7 +5,7 @@ function get_all_assignments($conn)
 
   $sql = "
   SELECT 
-    tmp1.assignmentid, tmp1.cid, tmp1.chorename, tmp1.date_due, tmp1.sname, tmp1.sid, tmp2.pid, tmp2.fullname 
+    tmp1.assignmentid, tmp1.chorename, tmp1.date_due, tmp1.sname, tmp1.sid, tmp2.pid, tmp2.fullname 
   FROM 
     ( SELECT 
         assignmentid, Assignment.cid AS cid, chorename, date_due, sname, Assignment.sid AS sid 
@@ -28,7 +28,6 @@ function get_all_assignments($conn)
 
   foreach ($result as $row) {
     $assignmentid = $row['assignmentid'];
-    $cid = $row['cid'];
     $sid = $row['sid'];
     $chorename = $row['chorename'];
     $due_date = $row['date_due'];
@@ -36,7 +35,6 @@ function get_all_assignments($conn)
 
     echo "<div class='table-row-group assign-chore'>
             <div class='table-row'>
-              <div class='table-cell border py-2 pl-3'>$cid</div>
               <div class='table-cell border py-2 pl-3'>$chorename</div>
               <div class='table-cell border py-2 pl-3'>$due_date</div>
               <div class='table-cell border py-2 pl-3'>$sname</div>
