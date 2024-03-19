@@ -12,6 +12,8 @@ if ($sid == 4) {
   exit();
 }
 
+mysqli_begin_transaction($conn);
+
 try {
   // update status
   $q1 = mysqli_prepare($conn, "UPDATE Assignment SET sid=4 WHERE assignmentid=?");
