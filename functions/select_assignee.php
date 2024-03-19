@@ -7,4 +7,3 @@ function get_assignees($conn)
     echo "<option value='" . $row['pid'] . "'>" . $row['fname'] . " " . $row['lname'] . "</option>";
   }
 }
-

@@ -121,7 +121,7 @@ if ($_SESSION['role_id'] == 3) {
               <div class="table-cell bg-gray-300 py-2 pl-3">Assigned by</div>
               <div class="table-cell bg-gray-300 py-2 pl-3">Date Assigned</div>
               <div class="table-cell bg-gray-300 py-2 pl-3">Date Completed</div>
-              <div class="table-cell bg-gray-300 py-2 pl-3">Details</div>
+              <div class="table-cell bg-gray-300 py-2 pl-3">Assignee</div>
             </div>
           </div>
           <?php

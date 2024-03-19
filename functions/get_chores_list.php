@@ -8,7 +8,7 @@ function get_chores_list($conn)
   foreach ($result as $row) {
     $cid = $row['cid'];
     $chorename = $row['chorename'];
-    echo "<div class='table-row-group'>
+    echo "<div class='table-row-group add-chore'>
             <div class='table-row'>
               <div class='table-cell border py-2 pl-3'>$cid</div>
               <div class='table-cell border py-2 pl-3'>$chorename</div>
@@ -22,8 +22,8 @@ function get_chores_list($conn)
                   </div>
               </div>
             </div>
-            <div id='dialog-$cid' class='dialog hidden bg-slate-50 w-1/3 h-1/3 absolute top-1/4 left-1/3 p-3 rounded-lg'>
-              <div class='text-right font-semibold p-3 cursor-pointer text-2xl text-red-500' id='close-$cid'>
+            <div id='dialog-edit-$cid' class='dialog hidden bg-slate-50 w-1/3 h-1/3 absolute top-1/4 left-1/3 p-3 rounded-lg'>
+              <div class='text-right font-semibold p-3 cursor-pointer text-2xl text-red-500' id='close-edit-$cid'>
                 x
               </div>
               <h3 class='text-2xl font-semibold text-center mb-5'>Edit Chore</h3>
