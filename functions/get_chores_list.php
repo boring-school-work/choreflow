@@ -10,6 +10,7 @@ function get_chores_list($conn)
     $chorename = $row['chorename'];
     echo "<div class='table-row-group add-chore'>
             <div class='table-row'>
+              <div class='cid-value hidden'>$cid</div>
               <div class='table-cell border py-2 pl-3'>$chorename</div>
               <div class='table-cell border py-2 pl-3'>
                   <div class='flex'>
