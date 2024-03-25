@@ -11,6 +11,7 @@ function get_inprogress_chores($conn)
         <div class='table-cell bg-gray-300 py-2 pl-3'>Chore name</div>
         <div class='table-cell bg-gray-300 py-2 pl-3'>Assigned by</div>
         <div class='table-cell bg-gray-300 py-2 pl-3'>Date Assigned</div>
+        <div class='table-cell bg-gray-300 py-2 pl-3'>Date Due</div>
         <div class='table-cell bg-gray-300 py-2 pl-3'>Assignee</div>
       </div>
     </div>
@@ -18,7 +19,7 @@ function get_inprogress_chores($conn)
 
   $sql = "
   SELECT * FROM 
-  (SELECT chorename, who_assigned, date_assign, assignmentid 
+  (SELECT chorename, who_assigned, date_assign, date_due, assignmentid 
   FROM Chores 
   INNER JOIN Assignment 
   ON Chores.cid = Assignment.cid 
@@ -36,12 +37,14 @@ function get_inprogress_chores($conn)
     $chorename = $row['chorename'];
     $who_assigned = get_fullname($conn, $row['who_assigned']);
     $date_assign = $row['date_assign'];
+    $date_due = $row['date_due'];
     $assignee = $row['assignee'];
     echo "<div class='table-row-group'>
             <div class='table-row'>
               <div class='table-cell border py-2 pl-3'>$chorename</div>
               <div class='table-cell border py-2 pl-3'>$who_assigned</div>
               <div class='table-cell border py-2 pl-3'>$date_assign</div>
+              <div class='table-cell border py-2 pl-3'>$date_due</div>
               <div class='table-cell border py-2 pl-3'>$assignee</div>
             </div>
           </div>";
