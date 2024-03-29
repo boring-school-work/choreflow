@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 function get_complete_count($conn)
 {
   $pid = $_SESSION['user_id'];
