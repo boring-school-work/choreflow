@@ -4,7 +4,7 @@ include "../../../settings/core.php";
 
 check_session();
 
-if ($_SESSION['role_id'] < 3) {
+if ($_SESSION['role'] == 'admin') {
   header("Location: ../../dashboard");
   exit();
 }
@@ -45,101 +45,15 @@ if ($_SESSION['role_id'] < 3) {
       <main class="bg-gray-100 h-[89vh] px-8">
         <h2 class="py-10 font-semibold text-gray-900 text-2xl">Chore List</h2>
         <div class="table w-full">
-          <div class="table-header-group">
-            <div class="table-row font-semibold">
-              <div class="table-cell">Name</div>
-              <div class="table-cell">Assigned by</div>
-              <div class="table-cell">Date assigned</div>
-              <div class="table-cell">Due date</div>
-              <div class="table-cell">Status</div>
-              <div class="table-cell">Actions</div>
-            </div>
-          </div>
-          <div class="table-row-group">
-            <div class="table-row">
-              <div class="table-cell">Clean the car</div>
-              <div class="table-cell">Nobara</div>
-              <div class="table-cell">29/01/2024</div>
-              <div class="table-cell">30/01/2024</div>
-              <div class="table-cell">Incomplete</div>
-              <div class="table-cell">Do something</div>
-            </div>
-            <div class="table-row">
-              <div class="table-cell">Clean the car</div>
-              <div class="table-cell">Nobara</div>
-              <div class="table-cell">29/01/2024</div>
-              <div class="table-cell">30/01/2024</div>
-              <div class="table-cell">In progress</div>
-              <div class="table-cell">Do something</div>
-            </div>
-            <div class="table-row">
-              <div class="table-cell">Clean the car</div>
-              <div class="table-cell">Nobara</div>
-              <div class="table-cell">29/01/2024</div>
-              <div class="table-cell">30/01/2024</div>
-              <div class="table-cell">In progress</div>
-              <div class="table-cell">Do something</div>
-            </div>
-            <div class="table-row">
-              <div class="table-cell">Clean the car</div>
-              <div class="table-cell">Nobara</div>
-              <div class="table-cell">29/01/2024</div>
-              <div class="table-cell">30/01/2024</div>
-              <div class="table-cell">Incomplete</div>
-              <div class="table-cell">Do something</div>
-            </div>
-            <div class="table-row">
-              <div class="table-cell">Clean the car</div>
-              <div class="table-cell">Nobara</div>
-              <div class="table-cell">29/01/2024</div>
-              <div class="table-cell">30/01/2024</div>
-              <div class="table-cell">In completed</div>
-              <div class="table-cell">Do something</div>
-            </div>
-          </div>
+          <?php
+          include "../../../settings/connection.php";
+          include "../../../functions/get_user_chores_list.php";
+          get_user_chores_list($conn);
+          $conn->close();
+          ?>
         </div>
-        <h2 class="py-10 font-semibold text-gray-900 text-2xl">
-          Completed chores
-        </h2>
-        <div class="table w-full">
-          <div class="table-header-group">
-            <div class="table-row font-semibold">
-              <div class="table-cell">Name</div>
-              <div class="table-cell">Assigned by</div>
-              <div class="table-cell">Date assigned</div>
-              <div class="table-cell">Due date</div>
-              <div class="table-cell">Status</div>
-              <div class="table-cell">Actions</div>
-            </div>
-          </div>
-          <div class="table-row">
-            <div class="table-cell">Clean the car</div>
-            <div class="table-cell">Nobara</div>
-            <div class="table-cell">29/01/2024</div>
-            <div class="table-cell">30/01/2024</div>
-            <div class="table-cell">Completed</div>
-            <div class="table-cell">Do something</div>
-          </div>
-          <div class="table-row">
-            <div class="table-cell">Clean the car</div>
-            <div class="table-cell">Nobara</div>
-            <div class="table-cell">29/01/2024</div>
-            <div class="table-cell">30/01/2024</div>
-            <div class="table-cell">Completed</div>
-            <div class="table-cell">Do something</div>
-          </div>
-          <div class="table-row">
-            <div class="table-cell">Clean the car</div>
-            <div class="table-cell">Nobara</div>
-            <div class="table-cell">29/01/2024</div>
-            <div class="table-cell">30/01/2024</div>
-            <div class="table-cell">Completed</div>
-            <div class="table-cell">Do something</div>
-          </div>
-        </div>
+      </main>
     </div>
-    </main>
-  </div>
   </div>
 </body>
 
