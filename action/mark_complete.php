@@ -2,14 +2,21 @@
 
 include "../settings/connection.php";
 
+session_start();
+
 $assignment_id = $conn->real_escape_string($_GET['assignmentid']);
 $sid = $conn->real_escape_string($_GET['sid']);
 
 // check if assignment is already complete
 // no need to touch database
 if ($sid == 3) {
-  header("Location: ../view/admin/assign-chore/");
-  exit();
+  if ($_SESSION['role'] == 'admin') {
+    header("Location: ../view/admin/assign-chore/");
+    exit();
+  } else {
+    header("Location: ../view/user/manage-chores/");
+    exit();
+  }
 }
 
 
@@ -36,5 +43,10 @@ try {
 }
 
 $conn->close();
-header("Location: ../view/admin/assign-chore/");
-exit();
+if ($_SESSION['role'] == 'admin') {
+  header("Location: ../view/admin/assign-chore/");
+  exit();
+} else {
+  header("Location: ../view/user/manage-chores/");
+  exit();
+}
