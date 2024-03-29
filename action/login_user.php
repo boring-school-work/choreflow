@@ -18,7 +18,11 @@ if (isset($_POST['submit'])) {
   }
 
   // create sessions
-  $_SESSION['role_id'] = $result['rid'];
+  if ($result['rid'] == 3) {
+    $_SESSION['role'] = "user";
+  } else {
+    $_SESSION['role'] = "admin";
+  }
   $_SESSION['user_id'] = $result['pid'];
   $_SESSION['username'] = $result['fname'] . " " . $result['lname'];
 

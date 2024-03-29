@@ -4,7 +4,7 @@ include "../../../settings/core.php";
 
 check_session();
 
-if ($_SESSION['role_id'] < 3) {
+if ($_SESSION['role'] == 'admin') {
   header("Location: ../../dashboard");
   exit();
 }
