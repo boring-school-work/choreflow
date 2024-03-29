@@ -40,7 +40,7 @@ function get_all_assignments($conn)
               <div class='table-cell border py-2 pl-3'>$sname</div>
               <div class='table-cell border py-2 pl-3'>
                 <div class='flex gap-x-2'>
-                  <form action='../../../action/delete_assign.php' name='del-assign'>
+                  <form action='../../../action/delete_assign.php' method='get' name='del-assign'>
                     <input type='text' class='hidden' name='assignmentid' value='$assignmentid' />
                     <input class='bg-gray-300 px-2 py-0.5 rounded-lg cursor-pointer' value='unassign' type='submit' />
                   </form>
