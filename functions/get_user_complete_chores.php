@@ -9,6 +9,8 @@ function get_user_completed_chores($conn)
 {
   include "../../../functions/get_fullname.php";
 
+  $pid = $_SESSION['user_id'];
+
   echo "
     <div class='table-header-group'>
       <div class='table-row'>
@@ -25,7 +27,9 @@ function get_user_completed_chores($conn)
   FROM Chores 
   INNER JOIN Assignment 
   ON Chores.cid = Assignment.cid 
-  WHERE Assignment.sid=3;
+  INNER JOIN Assigned_people
+  ON Assignment.assignmentid=Assigned_people.assignmentid
+  WHERE Assigned_people.pid=$pid AND Assignment.sid=3
 ";
   $result = $conn->query($sql);
 
