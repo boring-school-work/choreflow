@@ -10,7 +10,7 @@ $date_due = $conn->real_escape_string($_GET['due_date']);
 
 $date_assign = new DateTime();
 $date_assign = $conn->real_escape_string($date_assign->format("Y-m-d"));
-$sid = $conn->real_escape_string(4);
+$sid = $conn->real_escape_string(1);
 
 /* insert values into Assignment table */
 // prepare the query
