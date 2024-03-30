@@ -42,3 +42,27 @@ ChoreFlow is a chore management system that allows parents to assign chore to th
 4. Start the tailwind development build by running `npm run dev` in the terminal.
 5. Visit `http://localhost/choreflow` in your browser.
 6. Make changes in your preferred text editor.
+
+## NOTE
+
+### Custom Port for XAMPP
+
+My Xampp server runs on port 8080. Generally, that will not cause a problem
+for the project. However, if you want to see the custom error 404 and 403 page,
+kindly edit the `.htaccess` file in the root directory of the project.
+
+Currently, the `.htaccess` file looks like this:
+
+```apache
+ErrorDocument 404 http://localhost:8080/php/choreflow/view/404
+Options All -Indexes
+ErrorDocument 403 http://localhost:8080/php/choreflow/view/403
+```
+
+Convert it to this if you use the default port and setup for XAMPP:
+
+```apache
+ErrorDocument 404 http://localhost/choreflow/view/404
+Options All -Indexes
+ErrorDocument 403 http://localhost/choreflow/view/403
+```
